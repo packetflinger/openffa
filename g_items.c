@@ -1007,6 +1007,11 @@ void SpawnItem(edict_t *ent, gitem_t *item)
         gi.dprintf("%s at %s has invalid spawnflags set\n", ent->classname, vtos(ent->s.origin));
     }
 
+    if ((int) g_gameplay->value == GAMEPLAY_INSTA) {
+        G_FreeEdict(ent);
+        return;
+    }
+
     // some items will be prevented in deathmatch
     if (DF(NO_ARMOR)) {
         if (item->pickup == Pickup_Armor || item->pickup == Pickup_PowerArmor) {

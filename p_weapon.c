@@ -1152,8 +1152,10 @@ static void weapon_railgun_fire(edict_t *ent)
         ent->client->silencer_shots--;
     }
 
-    if (!DF(INFINITE_AMMO))
-        ent->client->inventory[ent->client->ammo_index]--;
+    if ((int) g_gameplay->value != GAMEPLAY_INSTA) {
+        if (!DF(INFINITE_AMMO))
+            ent->client->inventory[ent->client->ammo_index]--;
+    }
 
     ent->client->resp.frags[FRAG_RAILGUN].atts++;
 }

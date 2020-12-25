@@ -137,6 +137,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define MAX_IPSTR       64
 
 typedef enum {
+    GAMEPLAY_DM,
+    GAMEPLAY_INSTA
+} gameplay_t;
+
+typedef enum {
     DAMAGE_NO,
     DAMAGE_YES,         // will take damage if hit
     DAMAGE_AIM          // auto targeting recognizes this
@@ -654,6 +659,7 @@ extern  cvar_t  *dmflags;
 extern  cvar_t  *skill;
 extern  cvar_t  *fraglimit;
 extern  cvar_t  *timelimit;
+extern  cvar_t  *g_gameplay;
 extern  cvar_t  *g_select_empty;
 extern  cvar_t  *g_idle_time;
 extern  cvar_t  *g_idle_kick;

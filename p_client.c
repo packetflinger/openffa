@@ -1144,9 +1144,16 @@ void PutClientInServer(edict_t *ent)
     client->edict = ent;
     client->clientNum = index;
 
-    client->selected_item = ITEM_BLASTER;
-    client->inventory[ITEM_BLASTER] = 1;
-    client->weapon = INDEX_ITEM(ITEM_BLASTER);
+    if ((int) g_gameplay->value == GAMEPLAY_INSTA) {
+        client->selected_item = ITEM_RAILGUN;
+        client->inventory[ITEM_RAILGUN] = 1;
+        client->weapon = INDEX_ITEM(ITEM_RAILGUN);
+        client->inventory[ITEM_SLUGS] = 1;
+    } else {
+        client->selected_item = ITEM_BLASTER;
+        client->inventory[ITEM_BLASTER] = 1;
+        client->weapon = INDEX_ITEM(ITEM_BLASTER);
+    }
 
     client->max_bullets     = 200;
     client->max_shells      = 100;

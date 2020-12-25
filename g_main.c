@@ -37,6 +37,7 @@ cvar_t  *fraglimit;
 cvar_t  *timelimit;
 cvar_t  *maxclients;
 cvar_t  *maxentities;
+cvar_t  *g_gameplay;
 cvar_t  *g_select_empty;
 cvar_t  *g_idle_time;
 cvar_t  *g_idle_kick;
@@ -1176,6 +1177,7 @@ static void G_Init(void)
     gi.cvar("revision", va("%d", OPENFFA_REVISION), CVAR_SERVERINFO);
     gi.cvar_set("revision", va("%d", OPENFFA_REVISION));
 
+    g_gameplay = gi.cvar("g_gameplay", "0", CVAR_LATCH);
     g_select_empty = gi.cvar("g_select_empty", "0", CVAR_ARCHIVE);
     g_idle_time = gi.cvar("g_idle_time", "0", 0);
     g_idle_kick = gi.cvar("g_idle_kick", "0", 0);
